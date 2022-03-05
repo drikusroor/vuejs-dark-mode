@@ -28,6 +28,17 @@ export default defineComponent({
   margin-top: 60px;
 }
 
+button {
+  font-size: 1em;
+  padding: 0.25em 1em;
+  border: 2px solid #2c3e50;
+  border-radius: 3px;
+  color: #2c3e50;
+  background-color: #ecf0f1;
+  cursor: pointer;
+  margin-right: 1em;
+}
+
 /* default theme */
 :root {
    --color-background: #fff;
@@ -43,6 +54,7 @@ export default defineComponent({
 body, h2 {
   background: var(--color-background);
   color: var(--color-text);
+  transition: background 0.5s ease-in-out, color 0.5s ease-in-out;
 }
 
 </style>
