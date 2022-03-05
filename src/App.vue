@@ -1,17 +1,20 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js + TypeScript App"/>
+  <theme-settings></theme-settings>
 </template>
 
 <script lang="ts">
 import { defineComponent } from 'vue';
-import HelloWorld from './components/HelloWorld.vue';
+import ThemeSettings from './components/ThemeSettings.vue';
+import themeService from './services/theme.service';
 
 export default defineComponent({
   name: 'App',
   components: {
-    HelloWorld
-  }
+    ThemeSettings
+  },
+  created() {
+    themeService.initializeTheme();
+  },
 });
 </script>
 
@@ -24,4 +27,22 @@ export default defineComponent({
   color: #2c3e50;
   margin-top: 60px;
 }
+
+/* default theme */
+:root {
+   --color-background: #fff;
+   --color-text:       #111;
+}
+
+/* dark theme */
+:root[theme="dark"] {
+   --color-background: #333;
+   --color-text:       #ddd;
+}
+
+body, h2 {
+  background: var(--color-background);
+  color: var(--color-text);
+}
+
 </style>
